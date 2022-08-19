@@ -8,7 +8,7 @@ Deployed link:
 
 
 # What it looks like
-![TheWholeWeb](https://imgur.com/qfVEMOJ)
+![TheWholeWeb](https://imgur.com/qfVEMOJ.png)
 
 # Technology
 * Javascript, CSS, Html, express, google api
@@ -20,7 +20,7 @@ Deployed link:
 
 # Original Planning
 https://trello.com/b/lWP1Ms3J/project-2-ideas
-![ERD](https://imgur.com/eQQTi0P)
+![ERD](https://imgur.com/eQQTi0P.png)
 
 # Credits:
 * Professor and TAs
