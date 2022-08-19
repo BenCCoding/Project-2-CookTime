@@ -24,4 +24,5 @@ https://trello.com/b/lWP1Ms3J/project-2-ideas
 
 # Credits:
 * Professor and TAs
+* Everyone I private messaged during the ordeal
 * My sleep mask
