@@ -10,7 +10,7 @@ passport.use(
 		 callbackURL: process.env.GOOGLE_CALLBACK
 		},
 		async function(accessToken, refreshToken, profile, cb){
-			console.log(profile, " <- this is the profile from google")
+			console.log(profile)
 
 			const user = await User.findOne({googleId: profile.id});
 
