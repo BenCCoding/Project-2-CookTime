@@ -5,11 +5,10 @@ the users that post within the application.
 deleted by the user.
 
 Deployed link:
-https://benccodingblackjack.netlify.app/
+
 
 # What it looks like
-![LoadingBlackJack](https://i.imgur.com/SCKwPHl.png)
-![DealBlackJack](https://i.imgur.com/NLjZIrx.png)
+![TheWholeWeb](https://imgur.com/qfVEMOJ)
 
 # Technology
 * Javascript, CSS, Html, express, google api
@@ -19,8 +18,9 @@ https://benccodingblackjack.netlify.app/
 * Work on the stylesheet
 * Able to delete the posted recipes by the original user
 
-# Original Wire Frame and Planning
-![OriginalWireframe](https://i.imgur.com/doRcmLg.png)
+# Original Planning
+https://trello.com/b/lWP1Ms3J/project-2-ideas
+![ERD](https://imgur.com/eQQTi0P)
 
 # Credits:
 * Professor and TAs
