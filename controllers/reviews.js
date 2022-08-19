@@ -29,7 +29,6 @@ function create(req, res) {
   Dish.findById(req.params.id, function (err, recipeDocument) {
    req.body.user = req.user._id;
    req.body.userName = req.user.name;
-   req.body.userAvatar = req.user.avatar
 
    recipeDocument.reviews.push(req.body);
     recipeDocument.save(function(err) {
