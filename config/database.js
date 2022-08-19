@@ -1,7 +1,11 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/dishes');
+// replace your database connection string here
+mongoose.connect(process.env.DATABASE_URL);
 
-mongoose.connection.on('connected', function(){
-	console.log(`Connected to Mongodb, Good Luck!`)
-})
+const db = mongoose.connection;
+
+// database connection event
+db.on('connected', function () {
+  console.log(`Mongoose connected to: ${db.host}:${db.port}`);
+});
