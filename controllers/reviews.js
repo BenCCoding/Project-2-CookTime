@@ -1,5 +1,3 @@
-//import the model
-
 const Dish = require("../models/dish");
 
 module.exports = {

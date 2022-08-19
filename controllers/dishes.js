@@ -1,7 +1,5 @@
 const Dish = require("../models/dish");
 const Performer = require("../models/performer");
-// import our Model object which can perform crud operations
-// on the movies collection in our mongodb database
 
 module.exports = {
   new: newDish,
@@ -32,7 +30,7 @@ async function show(req, res) {
 
 function index(req, res) {
   Dish.find({}, function (err, recipeDatabase) {
-    console.log(recipeDatabase, " <- all the movies");
+    console.log(recipeDatabase);
 
     res.render("dishes/index.ejs", {
       dishes: recipeDatabase,
