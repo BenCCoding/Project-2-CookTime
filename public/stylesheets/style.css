@@ -7,3 +7,12 @@ body {
   margin: 10px;
   height: 100vh;
 }
+
+table {
+  font-size: 20px;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+}
