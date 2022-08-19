@@ -1,42 +1,43 @@
-<%- include('../partial/header') %>
+<%- include('../partials/header') %>
 
-<br><br><h2>Reviews</h2>
- <form id="add-review-form" method="POST"
-   action="/recipes/<%= dish._id %>/reviews">
-   <label>Review:</label>
-   <textarea name="content"></textarea>
-   <label>Rating:</label>
-   <select name="rating">
-     <option value="1">1</option>
-     <option value="2">2</option>
-     <option value="3">3</option>
-     <option value="4">4</option>
-     <option value="5">5</option>
-   </select>
-   <input type="submit" value="Add Review">
- </form>
+  <% if (user) { %>
+    <br>
+    <h2>Review</h2>
+    <form method="POST" action="/dishes/<%= dish._id %>/reviews">
+      <label>Review Here:</label>
+      <textarea name="content"></textarea>
+      <input type="submit" value="Post Review">
+    </form>
+    <% } %>
+      <% if (dish.reviews.length) { %>
+        <table>
+          <head>
+            <tr>
+              <th>User</th>
+              <th>Date</th>
+              <th>Reviews</th>
+            </tr>
+          </head>
+          <body>
+            <% let total = 0 %>
+            <% dish.reviews.forEach(function(r) { %>
+              <tr>
+                <td class="review-user"><%= r.userName %></td>
+                <td><%= r.createdAt.toLocaleDateString() %></td>
+                <td><%= r.content %></td>
+                <td>
+                  <% if (user?._id.equals(r.user)) { %>
+                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                      <button type="submit">DELETE</button>
+                    </form>
+                  <% } %>
+                </td>
+              </tr>
+            <% }); %>
+          </body>
+        </table>
+        <% } else { %>
+          <h3>Empty</h3>
+          <% } %>
 
- <% if (dish.reviews.length) { %>
-  <table>
-    <thead>
-      <tr>
-        <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% movie.reviews.forEach(function(r) { %>
-        <tr>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
-          <td><%= r.rating %></td>
-        </tr>
-      <% }); %>
-    </tbody>
-  </table>
-<% } else { %>
-  <h5>No Reviews Yet</h5>
-<% } %>
-  
-<%- include('../partial/footer') %>
+            <%- include('../partials/footer') %>

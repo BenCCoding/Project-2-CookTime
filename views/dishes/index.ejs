@@ -1,22 +1,18 @@
-<%- include('../partial/header') %>
+<%- include('../partials/header') %>
 <table id="list">
-  <thead>
-    <tr>
+  <head>
       <th>Dish<br>Name</th>
       <th>Cooking<br>Time</th>
-    </tr>
-  </thead>
-  <tbody>
-    
-    <% dish.forEach(function(d) { %>
-        <tr>
-          <td><%= d.name %></td>
-          <td><%= d.cookTime %></td>
-          <td><a href="/dish/<%= d._id %>">DETAILS</a></td>
-        </tr>
-        <% }); %>
-     
-    </tbody>
+  </head>
+  <body>
+    <% dishes.forEach(function(d) { %>
+      <tr>
+        <td><%= d.dishName %></td>
+        <td><%= d.cookingTime %></td>
+        <td><a href="/dishes/<%= d._id %>">REVIEWS</a></td>
+      </tr>
+      <% }); %>
+    </body>
   </table>
   
-<%- include('../partial/footer') %>
+<%- include('../partials/footer') %>

@@ -1,21 +1,40 @@
+//import the model
+
 const Dish = require("../models/dish");
 
 module.exports = {
   create,
+  delete: deleteReview
 };
 
+async function deleteReview(req, res){
+  try {
+    const recipeDocument = await Dish.findOne({
+      'reviews._id': req.params.id,
+      'reviews.user': req.user._id
+    });
+    if(!recipeDocument) return res.redirect('/dish');
+
+    recipeDocument.reviews.remove(req.params.id);
+
+    await recipeDocument.save();
+    res.redirect(`/dishes/${recipeDocument._id}`)
+
+  } catch(err){
+    res.send(err)
+  }
+}
+
+
 function create(req, res) {
-  console.log(req.params.id, " <- params movie id");
-  console.log(req.body, " <- the contents of the form aka the review");
-  // First we have to find the movie
-  Dish.findById(req.params.id, function (err, dishComment) {
-    // then we need to add the review (aka req.body) to that movies reviews array
-    console.log(dishComment, " <- movieDocument");
-    dishComment.reviews.push(req.body); // <- mutating (changing) the document
-    // that we found from the database,
-    // so when we do that, we need to tell the database we changed something,
-    // so we have to save the document
-    dishComment.save(function(err) {
+  console.log(req.user, " <- this is req.user")
+  Dish.findById(req.params.id, function (err, recipeDocument) {
+   req.body.user = req.user._id;
+   req.body.userName = req.user.name;
+   req.body.userAvatar = req.user.avatar
+
+   recipeDocument.reviews.push(req.body);
+    recipeDocument.save(function(err) {
       res.redirect(`/dishes/${req.params.id}`);
     });
   });
