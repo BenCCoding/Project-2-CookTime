@@ -1,43 +1,57 @@
 <%- include('../partials/header') %>
 
   <% if (user) { %>
-    <br>
     <h2>Review</h2>
     <form method="POST" action="/dishes/<%= dish._id %>/reviews">
-      <label>Review Here:</label>
-      <textarea name="content"></textarea>
-      <input type="submit" value="Post Review">
+      <table>
+        <tr>
+          <td><label>Review Here:</label></td>
+          <td><textarea name="content"></textarea></td>
+          <td><input type="submit" value="Post Review"></td>
+        </tr>
+      </table>
     </form>
-    <% } %>
-      <% if (dish.reviews.length) { %>
-        <table>
-          <head>
-            <tr>
-              <th>User</th>
-              <th>Date</th>
-              <th>Reviews</th>
-            </tr>
-          </head>
-          <body>
-            <% let total = 0 %>
-            <% dish.reviews.forEach(function(r) { %>
-              <tr>
-                <td class="review-user"><%= r.userName %></td>
-                <td><%= r.createdAt.toLocaleDateString() %></td>
-                <td><%= r.content %></td>
-                <td>
-                  <% if (user?._id.equals(r.user)) { %>
-                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                      <button type="submit">DELETE</button>
-                    </form>
-                  <% } %>
-                </td>
-              </tr>
-            <% }); %>
-          </body>
-        </table>
-        <% } else { %>
-          <h3>Empty</h3>
+    <h2>Edit Recipes</h2>
+    <form method="POST" action="/dishes/<%= dish._id %>?_method=PUT">
+      <table>
+        <tr>
+          <td><label>Update Name</label></td><td><label>Update Cook Time</label></td></tr>
+        <tr>
+          <td><input type="text" name="dishName" value="<%= dish.dishName%>"/></td>
+          <td><input type="text" name="cookingTime" size="15" value="<%= dish.cookingTime%>"/></td>
+          <td><input type="submit" value="Update"></td>
+        </tr>
+      </table>
+    </form>
+    </br>
+  <% } %>
+  <% if (dish.reviews.length) { %>
+    <table>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+        <th>Reviews</th>
+      </tr>
+    <tbody>
+    <% let total = 0 %>
+    <% dish.reviews.forEach(function(r) { %>
+      <tr>
+        <td class="review-user"><%= r.userName %></td>
+        <td><%= r.createdAt.toLocaleDateString() %></td>
+        <td><%= r.content %></td>
+        <td>
+          <% if (user?._id.equals(r.user)) { %>
+            <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit">DELETE</button>
+            </form>
           <% } %>
+        </td>
+      </tr>
+  <% }); %>
+    </tbody>
+    </table>
+  <% } else { %>
+    <h3>Empty</h3>
+  <% } %>
 
-            <%- include('../partials/footer') %>
+<%- include('../partials/footer') %>

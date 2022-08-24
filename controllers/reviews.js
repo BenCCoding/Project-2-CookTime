@@ -25,7 +25,7 @@ async function deleteReview(req, res){
 
 
 function create(req, res) {
-  console.log(req.user, " <- this is req.user")
+  console.log(req.user)
   Dish.findById(req.params.id, function (err, recipeDocument) {
    req.body.user = req.user._id;
    req.body.userName = req.user.name;

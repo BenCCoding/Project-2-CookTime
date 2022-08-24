@@ -1,18 +1,19 @@
 <%- include('../partials/header') %>
-<table id="list">
-  <head>
-      <th>Dish<br>Name</th>
-      <th>Cooking<br>Time</th>
-  </head>
-  <body>
+<table class="tableClass" id="list">
+  <caption><h2>Recipe List</h2></caption>
+  <thead>
+      <th>Dish Name</th>
+      <th>Cooking Time</th>
+  </thead>
+  <tbody id="tbodyEdit">
     <% dishes.forEach(function(d) { %>
       <tr>
-        <td><%= d.dishName %></td>
-        <td><%= d.cookingTime %></td>
-        <td><a href="/dishes/<%= d._id %>">REVIEWS</a></td>
+        <td class="tableClass"><%= d.dishName %></td>
+        <td class="tableClass left"><%= d.cookingTime %></td>
+        <td class="tableClass"><a href="/dishes/<%= d._id %>">REVIEWS</a></td>
       </tr>
       <% }); %>
-    </body>
+    </tbody>
   </table>
   
 <%- include('../partials/footer') %>

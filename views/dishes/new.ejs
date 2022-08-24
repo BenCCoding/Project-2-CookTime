@@ -1,11 +1,20 @@
 <%- include('../partials/header') %>
 
 <form action="/dishes" method="POST">
-  <label>Dish Name:</label>
-  <input type="text" name="dishName">
-  <label>Cooking Time:</label>
-  <input type="text" name="cookingTime">
-  <input type="submit" value="Add Dish">
+  <table class="tableClass">
+    <caption><h2>New Dish</h2></caption>
+  <tr>
+    <td>Dish Name:</td>
+    <td><input type="text" name="dishName"></td>
+  </tr>
+  <tr>
+    <td>Cooking Time:</td>
+    <td><input type="text" name="cookingTime"></td></tr>
+  </tr>
+  <tr>
+    <td colspan="2"><input type="submit" value="Add Dish"></td>
+  </tr>
+</table>
 </form>
 
 <%- include('../partials/footer') %>

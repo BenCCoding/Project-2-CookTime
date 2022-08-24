@@ -18,9 +18,7 @@ const dishSchema = new mongoose.Schema({
   cookingTime: {
     type: String,
   },
- 
   reviews: [reviewSchema],
-  cast: [{type: mongoose.Schema.Types.ObjectId, ref: 'Performer'}]
 });
 
 module.exports = mongoose.model("Dish", dishSchema);
