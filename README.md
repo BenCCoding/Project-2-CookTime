@@ -11,11 +11,10 @@ https://fathomless-brook-09561.herokuapp.com/dishes
 ![TheWholeWeb](https://imgur.com/qfVEMOJ.png)
 
 # Technology
-* Javascript, CSS, Html, express, google api
+* Javascript, CSS, Html, express, Google api, mongodb atlas,
 * Heroku
 
 # Future improvements
-* Work on the stylesheet
 * Able to delete the posted recipes by the original user
 
 # Original Planning
